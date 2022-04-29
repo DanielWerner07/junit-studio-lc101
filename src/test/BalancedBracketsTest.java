@@ -26,47 +26,47 @@ public class BalancedBracketsTest {
 
     @Test
     public void noBrackets() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets("LaunchCode"));
+        assertTrue(BalancedBrackets.hasBalancedBrackets("LaunchCode"));
     }
 
     @Test
     public void nothingGiven() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets(""));
+        assertTrue(BalancedBrackets.hasBalancedBrackets(""));
     }
 
     @Test
-    public void largeAmountOfBrackets() {
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[][][][][]"));
+    public void wrongBracketSecond() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[launchCode]]["));
     }
 
     @Test
-    public void test7() {
-
+    public void stringInBracket() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[LaunchCode]"));
     }
 
     @Test
-    public void test8() {
-
+    public void bracketBeforeString() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]LaunchCode"));
     }
 
     @Test
-    public void test9() {
-
+    public void oneOpenBracket() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[LaunchCode"));
     }
 
     @Test
-    public void test10() {
-
+    public void reverseBrackets() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("launch]code["));
     }
 
     @Test
-    public void test11() {
-
+    public void oneBracket() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("["));
     }
 
     @Test
-    public void test12() {
-
+    public void oneGoodSetandOneBadSet() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]launch[code]["));
     }
 
 }
